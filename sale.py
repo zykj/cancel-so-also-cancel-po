@@ -21,9 +21,6 @@
 from openerp.osv import fields,osv
 from openerp import netsvc
 from openerp.tools.translate import _
-import logging  # 新增 
-
-logger = logging.getLogger(__name__)  #重新定义
 
 class sale_order(osv.osv):
     
@@ -65,7 +62,6 @@ class sale_order(osv.osv):
                        wf_service.trg_validate(uid, 'account.invoice', inv.id, 'invoice_cancel', cr)
             purchase_order_object.write(cr,uid,purchase_ids,{'state':'cancel'})
         self.write(cr, uid, ids, {'state': 'cancel'})
-        logger.log(3, " one  %s  two%s:   three  %s" %('123', '123', '123'))
 
 
         return True
